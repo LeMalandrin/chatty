@@ -15,8 +15,14 @@ export class LoginComponent implements OnInit {
 	controls:string[] = [];
 
   	constructor(private userService:UserService, private router:Router) {
-  		this.controls['login'] = "form-group";
-  		this.controls['password'] = "form-group";
+      if(localStorage.getItem('me')) {        
+        router.navigate(['']);
+        location.reload();
+      } else {
+        this.controls['login'] = "form-group";
+        this.controls['password'] = "form-group"; 
+        userService.logout();
+      }
   	}
 
   	ngOnInit() {
@@ -32,7 +38,7 @@ export class LoginComponent implements OnInit {
   		if(login != null) {
   			login.then((auth)=>{
           localStorage.setItem('me', auth.uid);
-	  			this.router.navigate(['']);
+          location.reload();
   			}).catch((error)=>{  				
 	  			this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
 	  			this.errors['password'].push("Le mot de passe est invalide");
