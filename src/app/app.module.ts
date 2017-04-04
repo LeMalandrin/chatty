@@ -10,11 +10,13 @@ import { firebaseAuthConfig } from './firebase.auth.config';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
