@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
   		let login = this.userService.login();
   		if(login != null) {
   			login.then((auth)=>{
-  				this.userService.setMe(auth.uid);
 	  			this.router.navigate(['']);
   			}).catch((error)=>{  				
 	  			this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];

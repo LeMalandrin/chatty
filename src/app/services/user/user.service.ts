@@ -5,7 +5,6 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class UserService {
 	user:User;
-	me:string;
 	users:any[];
 	repository:FirebaseListObservable<any>;
 
@@ -110,9 +109,6 @@ export class UserService {
 
 	setUser(user:User) {
 		this.user = user;
-	}
-	setMe(private_id:string) {
-		this.me = private_id;
 	}
 
 	rand = function() {
