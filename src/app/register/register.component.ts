@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   	register() {  		
 	  	this.userService.setUser(this.user);
 	  	if(this.userService.create()) {
-	  		this.router.navigate(['']);
+	  		this.router.navigate(['login']);
 	  	}
   	}
 
@@ -88,44 +88,60 @@ export class RegisterComponent implements OnInit {
   	}
   	updateEmailControl() {
   		if(this.user.email.length>0) {
-  			if(this.errors['email'].length>0) {
-  				this.controls['email'] = "form-group has-error";
-  			} else {
-  				this.controls['email'] = "form-group has-success";
-  			}
+	  		if(this.errors['email']!=undefined) {
+	  			if(this.errors['email'].length>0) {
+	  				this.controls['email'] = "form-group has-error";
+	  			} else {
+	  				this.controls['email'] = "form-group has-success";
+	  			}
+	  		} else {
+  				this.controls['email'] = "form-group"	  			
+	  		}
   		} else {
   			this.controls['email'] = "form-group"
   		}
   	}
   	updateUsernameControl() {
   		if(this.user.username.length>0) {
-  			if(this.errors['username'].length>0) {
-  				this.controls['username'] = "form-group has-error";
-  			} else {
-  				this.controls['username'] = "form-group has-success";
-  			}
+	  		if(this.errors['username']!=undefined) {
+	  			if(this.errors['username'].length>0) {
+	  				this.controls['username'] = "form-group has-error";
+	  			} else {
+	  				this.controls['username'] = "form-group has-success";
+	  			}
+	  		} else {
+  				this.controls['username'] = "form-group"	  			
+	  		}
   		} else {
   			this.controls['username'] = "form-group"
   		}
   	}
   	updatePasswordControl() {
   		if(this.user.password.length>0) {
-  			if(this.errors['password'].length>0) {
-  				this.controls['password'] = "form-group has-error";
-  			} else {
-  				this.controls['password'] = "form-group has-success";
-  			}
+	  		if(this.errors['password']!=undefined) {
+	  			if(this.errors['password'].length>0) {
+	  				this.controls['password'] = "form-group has-error";
+	  			} else {
+	  				this.controls['password'] = "form-group has-success";
+	  			}
+	  		} else {
+  				this.controls['password'] = "form-group"	  			
+	  		}
   		} else {
   			this.controls['password'] = "form-group"
   		}
   	}  	
   	updatePasswordConfirmControl() {
-  		if(this.user.password_confirm.length>0) {
-  			if(this.errors['passwordConfirm'].length>0) {
-  				this.controls['passwordConfirm'] = "form-group has-error";
-  			} else {
-  				this.controls['passwordConfirm'] = "form-group has-success";
-  			}
+  		if(this.user.password_confirm.length>0) {  			
+	  		if(this.errors['passwordConfirm']!=undefined) {
+	  			if(this.errors['passwordConfirm'].length>0) {
+	  				this.controls['passwordConfirm'] = "form-group has-error";
+	  			} else {
+	  				this.controls['passwordConfirm'] = "form-group has-success";
+	  			}
+	  		} else {
+	  			this.controls['passwordConfirm'] = "form-group"
+	  		}
   		} else {
   			this.controls['passwordConfirm'] = "form-group"
   		}
