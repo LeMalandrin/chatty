@@ -10,11 +10,16 @@ import {Observable} from 'rxjs/Rx';
 })
 export class NavbarComponent implements OnInit {
 	me:any;
-  	constructor(private userService:UserService) {
-  	}
+	constructor(private userService:UserService) {
+	}
 
-  	ngOnInit() {
-  		this.me = this.userService.getMe(localStorage.getItem('me'));
-  	}
+	ngOnInit() {
+    let my_id = localStorage.getItem('me');
+    if(my_id != null) {
+  		this.me = this.userService.getMe(my_id).subscribe(me=>{
+        this.me = me;
+      });
+    }
+	}
 
 }
