@@ -11,12 +11,16 @@ import { firebaseAuthConfig } from './firebase.auth.config';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
