@@ -9,10 +9,12 @@ import { firebaseConfig } from './firebase.config';
 import { firebaseAuthConfig } from './firebase.auth.config';
 
 import { AppComponent } from './app.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
