@@ -5,6 +5,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 @Injectable()
 export class UserService {
 	user:User;
+	me:string;
 	users:any[];
 	repository:FirebaseListObservable<any>;
 
@@ -14,6 +15,39 @@ export class UserService {
 			this.users = users;
 		})
 	}
+
+	login() {
+		this.user.email = this.user.login.toLowerCase();
+		let relatedUser:any;
+		if(this.isValidEmail()) {
+			//Le login est une adresse email, on se connecte avec l'adresse email
+			for(var user of this.users) {
+				if(user.email.toLowerCase() == this.user.email) {
+					relatedUser = user;
+				}
+			}
+			if(relatedUser != undefined) {
+				return this.af.auth.login({email: this.user.email, password: this.user.password});
+			} else {
+				return null;
+			}
+		} else {
+			//Le login n'est pas une adresse email, on recherche le compte correspondant au login et on récupère l'email
+			this.user.username = this.user.login.toLowerCase();
+			for(var user of this.users) {
+				if(user.username.toLowerCase() == this.user.username) {
+					relatedUser = user;
+				}
+			}
+			if(relatedUser != undefined) {
+				return this.af.auth.login({email: relatedUser.email, password: this.user.password});
+			} else {
+				return null;
+			}
+		}
+	}
+
+
 
 
 	create() {
@@ -77,7 +111,9 @@ export class UserService {
 	setUser(user:User) {
 		this.user = user;
 	}
-
+	setMe(private_id:string) {
+		this.me = private_id;
+	}
 
 	rand = function() {
 	    return Math.random().toString(36).substr(2); // remove `0.`
