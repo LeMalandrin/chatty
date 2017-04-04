@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import 'rxjs/add/operator/take'
 
 @Injectable()
 export class UserService {
@@ -15,7 +16,16 @@ export class UserService {
 		})
 	}
 
+
+
+	getMe(private_id:string) {
+		return this.af.database.object('/users/' + private_id , { preserveSnapshot: true });
+	}
+
+
+
 	login() {
+		console.log(this.users);
 		this.user.email = this.user.login.toLowerCase();
 		let relatedUser:any;
 		if(this.isValidEmail()) {
@@ -53,7 +63,7 @@ export class UserService {
 		if(this.isValid()) {
 			this.af.auth.createUser({email: this.user.email, password: this.user.password}).then(auth=>{
 				this.af.auth.logout();
-				this.repository.push({
+				this.af.database.object('/users/' + auth.uid).set({
 					public_id: this.rand(),
 					private_id: auth.uid,
 					email: this.user.email.toLowerCase(),
