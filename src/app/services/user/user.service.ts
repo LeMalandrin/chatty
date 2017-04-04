@@ -19,13 +19,15 @@ export class UserService {
 	create() {
 		if(this.isValid()) {
 			this.af.auth.createUser({email: this.user.email, password: this.user.password}).then(auth=>{
+				this.af.auth.logout();
 				this.repository.push({
 					public_id: this.rand(),
 					private_id: auth.uid,
 					email: this.user.email.toLowerCase(),
 					username: this.user.username,
 					status: this.user.status,
-					role: this.user.role
+					role: this.user.role,
+					isConnected: false
 				});
 			});
 			return true;
