@@ -8,6 +8,7 @@ export class User {
 	status:string;
 	role:string;
 	isConnected:boolean;
+	login:string;
 
 	constructor() {
 		this.public_id = "";
@@ -19,5 +20,6 @@ export class User {
 		this.status = "idle";
 		this.role = "basic";
 		this.isConnected = false;
+		this.login = "";
 	}
 }
