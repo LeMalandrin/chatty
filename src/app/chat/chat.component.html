@@ -7,7 +7,9 @@
 	<div class="row chat_top">haut</div>
 	<div class="row chat_middle">
 		<div class="chat_left col-md-6 col-sm-6 col-xs-6">gauche</div>
-		<div class="chat_right col-md-6 col-sm-6 col-xs-6">droite</div>
+		<div class="chat_right col-md-6 col-sm-6 col-xs-6">
+			<app-roomlist [me]="me"></app-roomlist>
+		</div>
 	</div>
 	<div class="row chat_bottom">bas</div>
 </div>
