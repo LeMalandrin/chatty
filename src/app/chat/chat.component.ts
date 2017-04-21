@@ -10,7 +10,10 @@ import { UserService } from '../services/user/user.service';
 })
 export class ChatComponent implements OnInit {
 	me:any;
-  	constructor(private userService:UserService) { }
+	window_height:number;
+  	constructor(private userService:UserService) {
+  		this.window_height = window.innerHeight;
+  	}
 
   	ngOnInit() {  	
     	let my_id = localStorage.getItem('me');

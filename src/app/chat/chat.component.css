@@ -2,7 +2,32 @@
 	margin-top: 50px;
 }
 
-.chat_main {
+.chat {
 	margin-top: 45px;
+	width: 100%;
+}
+
+
+.chat_top {
+	background-color: #00a5dc;
+	height: 10%;
+}
+
+.chat_left {
+	border: solid 1px blue;
+	height: 100%;
+}
+.chat_right {
+	border: solid 1px orange;
+	height: 100%;
+}
+
+.chat_middle {
+	border: 1px solid black;
+	height: 80%;
+}
+
+.chat_bottom {
 	border: black solid 1px;
+	height: 10%;
 }

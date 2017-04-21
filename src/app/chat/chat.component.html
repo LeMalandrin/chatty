@@ -3,7 +3,11 @@
 	Chargement...
 </p>
 
-<p *ngIf="me.username" class="chat_main">
-
-
-</p>
+<div *ngIf="me.username" class="chat container-fluid" [style.height.px]="window_height - 45">
+	<div class="row chat_top">haut</div>
+	<div class="row chat_middle">
+		<div class="chat_left col-md-6 col-sm-6 col-xs-6">gauche</div>
+		<div class="chat_right col-md-6 col-sm-6 col-xs-6">droite</div>
+	</div>
+	<div class="row chat_bottom">bas</div>
+</div>
