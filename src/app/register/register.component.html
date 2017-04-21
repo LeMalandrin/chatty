@@ -1,46 +1,48 @@
-<div class="well bs-component col-md-12">
-	<form class="form-horizontal">
-		<fieldset>
-			<legend>Créer un compte utilisateur</legend>
+<div class="container">
+	<div class="well bs-component col-md-12">
+		<form class="form-horizontal">
+			<fieldset>
+				<legend>Créer un compte utilisateur</legend>
 
-			<div [class]="controls['email']">
-				<label class="control-label col-md-2">Email</label>
-				<div class="col-md-10">
-					<input type="email" class="form-control" name="email" [(ngModel)]="user.email" (keyup)="validateEmail()" (keyup)="validateEmail()">
-					<span class="help-block" *ngFor="let error of errors['email']">{{error}}</span>
+				<div [class]="controls['email']">
+					<label class="control-label col-md-2">Email</label>
+					<div class="col-md-10">
+						<input type="email" class="form-control" name="email" [(ngModel)]="user.email" (keyup)="validateEmail()" (keyup)="validateEmail()">
+						<span class="help-block" *ngFor="let error of errors['email']">{{error}}</span>
+					</div>
 				</div>
-			</div>
 
-			<div [class]="controls['username']">
-				<label class="control-label col-md-2">Nom d'utilisateur</label>
-				<div class="col-md-10">
-					<input type="text" class="form-control" name="username" [(ngModel)]="user.username" (keyup)="validateUsername()" (keyup)="validateUsername()">
-					<span class="help-block" *ngFor="let error of errors['username']">{{error}}</span>
+				<div [class]="controls['username']">
+					<label class="control-label col-md-2">Nom d'utilisateur</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="username" [(ngModel)]="user.username" (keyup)="validateUsername()" (keyup)="validateUsername()">
+						<span class="help-block" *ngFor="let error of errors['username']">{{error}}</span>
+					</div>
 				</div>
-			</div>
 
-			<div [class]="controls['password']">
-				<label class="control-label col-md-2">Mot de passe</label>
-				<div class="col-md-10">
-					<input type="password" class="form-control" name="password" [(ngModel)]="user.password" (keyup)="validatePassword()" (keyup)="validatePassword()">
-					<span class="help-block" *ngFor="let error of errors['password']">{{error}}</span>
+				<div [class]="controls['password']">
+					<label class="control-label col-md-2">Mot de passe</label>
+					<div class="col-md-10">
+						<input type="password" class="form-control" name="password" [(ngModel)]="user.password" (keyup)="validatePassword()" (keyup)="validatePassword()">
+						<span class="help-block" *ngFor="let error of errors['password']">{{error}}</span>
+					</div>
 				</div>
-			</div>
 
-			<div [class]="controls['passwordConfirm']">
-				<label class="control-label col-md-2">Confirmer le mot de passe</label>
-				<div class="col-md-10">
-					<input type="password" class="form-control" name="passwordConfirm" [(ngModel)]="user.password_confirm" (keyup)="validatePasswordConfirm()" (change)="validatePasswordConfirm()">
-					<span class="help-block" *ngFor="let error of errors['passwordConfirm']">{{error}}</span>
+				<div [class]="controls['passwordConfirm']">
+					<label class="control-label col-md-2">Confirmer le mot de passe</label>
+					<div class="col-md-10">
+						<input type="password" class="form-control" name="passwordConfirm" [(ngModel)]="user.password_confirm" (keyup)="validatePasswordConfirm()" (change)="validatePasswordConfirm()">
+						<span class="help-block" *ngFor="let error of errors['passwordConfirm']">{{error}}</span>
+					</div>
 				</div>
-			</div>
 
 
-			<div class="form-group">
-				<div class="col-md-3 col-md-offset-2">
-					<button type="button" class="btn btn-primary" (click)="register()">S'enregistrer</button>
+				<div class="form-group">
+					<div class="col-md-3 col-md-offset-2">
+						<button type="button" class="btn btn-primary" (click)="register()">S'enregistrer</button>
+					</div>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</fieldset>
+		</form>
+	</div>
 </div>

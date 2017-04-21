@@ -1,30 +1,32 @@
-<div class="well bs-component col-md-12">
-	<form class="form-horizontal">
-		<fieldset>
-			<legend>Se connecter</legend>
+<div class="container">
+	<div class="well bs-component col-md-12">
+		<form class="form-horizontal">
+			<fieldset>
+				<legend>Se connecter</legend>
 
-			<div [class]="controls['login']">
-				<label class="control-label col-md-2">Email ou nom d'utilisateur</label>
-				<div class="col-md-10">
-					<input type="text" class="form-control" name="login" [(ngModel)]="user.login">
-					<span class="help-block" *ngFor="let error of errors['login']">{{error}}</span>
+				<div [class]="controls['login']">
+					<label class="control-label col-md-2">Email ou nom d'utilisateur</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" name="login" [(ngModel)]="user.login">
+						<span class="help-block" *ngFor="let error of errors['login']">{{error}}</span>
+					</div>
 				</div>
-			</div>
 
-			<div [class]="controls['password']">
-				<label class="control-label col-md-2">Mot de passe</label>
-				<div class="col-md-10">
-					<input type="password" class="form-control" name="password" [(ngModel)]="user.password">
-					<span class="help-block" *ngFor="let error of errors['password']">{{error}}</span>
+				<div [class]="controls['password']">
+					<label class="control-label col-md-2">Mot de passe</label>
+					<div class="col-md-10">
+						<input type="password" class="form-control" name="password" [(ngModel)]="user.password">
+						<span class="help-block" *ngFor="let error of errors['password']">{{error}}</span>
+					</div>
 				</div>
-			</div>
 
 
-			<div class="form-group">
-				<div class="col-md-3 col-md-offset-2">
-					<button type="button" class="btn btn-primary" (click)="connect()">Se connecter</button>
+				<div class="form-group">
+					<div class="col-md-3 col-md-offset-2">
+						<button type="button" class="btn btn-primary" (click)="connect()">Se connecter</button>
+					</div>
 				</div>
-			</div>
-		</fieldset>
-	</form>
+			</fieldset>
+		</form>
+	</div>
 </div>
