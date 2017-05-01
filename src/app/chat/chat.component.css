@@ -10,7 +10,7 @@
 
 .chat_top {
 	background-color: #00a5dc;
-	height: 10%;
+	height: 5%;
 }
 
 .chat_left {
@@ -20,6 +20,7 @@
 .chat_right {
 	border: solid 1px orange;
 	height: 100%;
+	padding: 0;
 }
 
 .chat_middle {
@@ -29,5 +30,5 @@
 
 .chat_bottom {
 	border: black solid 1px;
-	height: 10%;
+	height: 15%;
 }

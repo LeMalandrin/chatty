@@ -6,8 +6,8 @@
 <div *ngIf="me.username" class="chat container-fluid" [style.height.px]="window_height - 45">
 	<div class="row chat_top">haut</div>
 	<div class="row chat_middle">
-		<div class="chat_left col-md-6 col-sm-6 col-xs-6">gauche</div>
-		<div class="chat_right col-md-6 col-sm-6 col-xs-6">
+		<div class="chat_left col-md-8 col-sm-8 col-xs-7">gauche</div>
+		<div class="chat_right col-md-4 col-sm-4 col-xs-5">
 			<app-roomlist [me]="me"></app-roomlist>
 		</div>
 	</div>
