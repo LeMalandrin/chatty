@@ -4,9 +4,9 @@
 	    	<h3 class="panel-title">{{ room.label }}</h3>
 	  	</div>
 	  	<div class="panel-body">
-	  		<p *ngFor="let occupant of room.occupants">
-	  			{{occupant.email}}
-	  		</p>
+	  		<div *ngFor="let occupant of room.occupants">
+	  			{{occupant.username}}
+	  		</div>
 	  	</div>
 	</div>
 </div>
