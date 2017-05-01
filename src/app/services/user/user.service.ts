@@ -57,7 +57,9 @@ export class UserService {
 	}
 
 
-
+	getUser(user_id) {
+		return this.af.database.object('/users/' + user_id);
+	}
 
 	create() {
 		if(this.isValid()) {
