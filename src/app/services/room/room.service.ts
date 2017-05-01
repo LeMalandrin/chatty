@@ -16,6 +16,11 @@ export class RoomService {
 	}
 
 
+	getOccupants(query) {
+		return this.af.database.list('/rooms_users', {
+	    	query
+	    })
+	}
 	getRooms() {	
 		return this.af.database.list('/rooms');
 	}
