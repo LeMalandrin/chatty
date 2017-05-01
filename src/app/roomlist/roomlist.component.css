@@ -1,0 +1,13 @@
+.panel-heading {
+	padding: 2px;
+	font-size: 10px;
+}
+
+.panel-body {
+	padding: 0;
+	padding-left: 7px;
+}
+
+.panel {
+	margin-bottom: 0;
+}
