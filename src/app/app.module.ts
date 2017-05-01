@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { RoomlistComponent } from './roomlist/roomlist.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { RoomlistComponent } from './roomlist/roomlist.component';
     NavbarComponent,
     HomeComponent,
     ChatComponent,
-    RoomlistComponent
+    RoomlistComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

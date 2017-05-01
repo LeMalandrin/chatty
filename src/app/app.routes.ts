@@ -2,6 +2,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
+import { LogoutComponent } from './logout/logout.component';
 
 export const routes = [
 	{
@@ -19,5 +20,9 @@ export const routes = [
 	{
 		path: 'chat',
 		component: ChatComponent
+	},
+	{
+		path: 'logout',
+		component: LogoutComponent
 	}
 ];
