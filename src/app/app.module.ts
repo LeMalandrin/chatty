@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import { ChatComponent } from './chat/chat.component';
 import { RoomlistComponent } from './roomlist/roomlist.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AdminComponent } from './admin/admin.component';
+import { RoommanagerComponent } from './roommanager/roommanager.component';
+import { UsermanagerComponent } from './usermanager/usermanager.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { LogoutComponent } from './logout/logout.component';
     HomeComponent,
     ChatComponent,
     RoomlistComponent,
-    LogoutComponent
+    LogoutComponent,
+    AdminComponent,
+    RoommanagerComponent,
+    UsermanagerComponent
   ],
   imports: [
     BrowserModule,
