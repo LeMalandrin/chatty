@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-roommanager',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./roommanager.component.css']
 })
 export class RoommanagerComponent implements OnInit {
+	@Input() me:any;
+  	
+  	constructor() { }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  	ngOnInit() {
+  	}
 
 }
