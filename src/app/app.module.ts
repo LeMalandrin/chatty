@@ -19,6 +19,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AdminComponent } from './admin/admin.component';
 import { RoommanagerComponent } from './roommanager/roommanager.component';
 import { UsermanagerComponent } from './usermanager/usermanager.component';
+import { RoommanagerListComponent } from './roommanager-list/roommanager-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UsermanagerComponent } from './usermanager/usermanager.component';
     LogoutComponent,
     AdminComponent,
     RoommanagerComponent,
-    UsermanagerComponent
+    UsermanagerComponent,
+    RoommanagerListComponent
   ],
   imports: [
     BrowserModule,
