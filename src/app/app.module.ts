@@ -19,7 +19,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AdminComponent } from './admin/admin.component';
 import { RoommanagerComponent } from './roommanager/roommanager.component';
 import { UsermanagerComponent } from './usermanager/usermanager.component';
-import { RoommanagerListComponent } from './roommanager-list/roommanager-list.component';
+
+import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @NgModule({
   declarations: [
@@ -34,14 +35,14 @@ import { RoommanagerListComponent } from './roommanager-list/roommanager-list.co
     AdminComponent,
     RoommanagerComponent,
     UsermanagerComponent,
-    RoommanagerListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
+    Ng2Bs3ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
