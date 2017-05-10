@@ -1,1 +1,38 @@
-<app-roommanager-list></app-roommanager-list>
+<div class="col-md-12 roommanager-list">
+<button type="button" class="btn btn-default" (click)="modal.open()">Open me!</button>
+
+
+<modal #modal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">I'm a modal!</h4>
+    </modal-header>
+    <modal-body>
+        Hello World!
+    </modal-body>
+    <modal-footer [show-default-buttons]="true"></modal-footer>
+</modal>
+
+
+	<div class="table-responsive">
+	  	<table class="table table-condensed table-hover">
+	    	<tbody>
+	    		<tr *ngFor="let room of rooms">
+	    			<td>{{ room.label }}</td>
+	    			<td class="text-right">
+	    				<div class="btn-group" role="group" aria-label="...">
+						  	<button type="button" class="btn btn-default btn-sm">
+						  		<i class="fa fa-pencil"></i>
+						  		Modifier
+						  	</button>
+						  	
+						  	<button type="button" class="btn btn-default btn-sm">
+						  		<i class="fa fa-trash"></i>
+						  		Supprimer
+						  	</button>
+						</div>
+	    			</td>
+	    		</tr>
+	    	</tbody>
+	  	</table>
+	</div>
+</div>
