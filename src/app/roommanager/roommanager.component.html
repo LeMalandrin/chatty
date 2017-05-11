@@ -1,16 +1,9 @@
 <div class="col-md-12 roommanager-list">
-<button type="button" class="btn btn-default" (click)="modal.open()">Open me!</button>
+	
+	<button type="button" class="btn btn-primary btn-sm addBtn" (click)="showAddModal()">
+  		<i class="fa fa-plus"></i> Ajouter un salon
+	</button>
 
-
-<modal #modal>
-    <modal-header [show-close]="true">
-        <h4 class="modal-title">I'm a modal!</h4>
-    </modal-header>
-    <modal-body>
-        Hello World!
-    </modal-body>
-    <modal-footer [show-default-buttons]="true"></modal-footer>
-</modal>
 
 
 	<div class="table-responsive">
@@ -20,12 +13,16 @@
 	    			<td>{{ room.label }}</td>
 	    			<td class="text-right">
 	    				<div class="btn-group" role="group" aria-label="...">
-						  	<button type="button" class="btn btn-default btn-sm">
+						  	<button type="button" class="btn btn-default btn-sm" (click)="showDetailsModal(room.public_id)">
+						  		<i class="fa fa-bars"></i>
+						  		Détails
+						  	</button>
+						  	<button type="button" class="btn btn-default btn-sm" (click)="showUpdateModal(room.public_id)">
 						  		<i class="fa fa-pencil"></i>
 						  		Modifier
 						  	</button>
 						  	
-						  	<button type="button" class="btn btn-default btn-sm">
+						  	<button type="button" class="btn btn-default btn-sm" (click)="deleteRoom(room.public_id)">
 						  		<i class="fa fa-trash"></i>
 						  		Supprimer
 						  	</button>
@@ -35,4 +32,75 @@
 	    	</tbody>
 	  	</table>
 	</div>
+
+
+
+
+
+
+
+	<modal #addModal>
+	    <modal-header [show-close]="true">
+	        <h4 class="modal-title">Ajouter un salon</h4>
+	    </modal-header>
+	    <modal-body>
+	        <div [class]="controls['label']">
+	            <label for="textbox">Nom</label>
+	            <input autofocus type="text" class="form-control" id="label" [(ngModel)]="room.label" (keyup)="validateLabel()">
+				<span class="help-block" *ngFor="let error of errors['label']">{{error}}</span>
+	        </div>  
+	        <div class="form-group">
+	            <label for="textbox">Description</label>
+	            <input type="text" class="form-control" id="description" [(ngModel)]="room.description">
+	        </div>  
+	    </modal-body>
+	    <modal-footer>
+	    	<button type="button" class="btn btn-default btn-sm" (click)="closeAddModal()">Annuler</button>
+	    	<button type="button" class="btn btn-primary btn-sm" (click)="createRoom()">Ajouter</button>
+	    </modal-footer>
+	</modal>
+
+	<modal #updateModal>
+	    <modal-header [show-close]="true">
+	        <h4 class="modal-title">Modifier le salon '{{room.label}}'</h4>
+	    </modal-header>
+	    <modal-body>
+	        <div [class]="controls['label']">
+	            <label for="textbox">Nom</label>
+	            <input autofocus type="text" class="form-control" id="label" [(ngModel)]="room.label" (keyup)="validateLabel()">
+				<span class="help-block" *ngFor="let error of errors['label']">{{error}}</span>
+	        </div>  
+	        <div class="form-group">
+	            <label for="textbox">Description</label>
+	            <input type="text" class="form-control" id="description" [(ngModel)]="room.description">
+	        </div>  
+	    </modal-body>
+	    <modal-footer>
+	    	<button type="button" class="btn btn-default btn-sm" (click)="closeUpdateModal()">Annuler</button>
+	    	<button type="button" class="btn btn-primary btn-sm" (click)="updateRoom()">Modifier</button>
+	    </modal-footer>
+	</modal>
+
+
+	<modal #detailsModal>
+	    <modal-header [show-close]="true">
+	        <h4 class="modal-title">Modifier le salon '{{room.label}}'</h4>
+	    </modal-header>
+	    <modal-body>
+	        <div class="form-group">
+	            <label for="textbox">Nom</label>
+	            <input disabled="disabled" type="text" class="form-control" id="label" [(ngModel)]="room.label" (keyup)="validateLabel()">
+	        </div>  
+	        <div class="form-group">
+	            <label for="textbox">Description</label>
+	            <input disabled="disabled" type="text" class="form-control" id="description" [(ngModel)]="room.description">
+	        </div>  
+	    </modal-body>
+	    <modal-footer>
+	    	<button type="button" class="btn btn-primary btn-sm" (click)="closeDetailsModal()">Fermer</button>
+	    </modal-footer>
+	</modal>
+
+
+
 </div>
