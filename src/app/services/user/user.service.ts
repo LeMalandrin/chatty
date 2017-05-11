@@ -66,7 +66,7 @@ export class UserService {
 			this.af.auth.createUser({email: this.user.email, password: this.user.password}).then(auth=>{
 				this.af.auth.logout();
 				this.af.database.object('/users/' + auth.uid).set({
-					public_id: this.rand(),
+					public_id: this.rand() + this.rand(),
 					private_id: auth.uid,
 					email: this.user.email.toLowerCase(),
 					username: this.user.username,
