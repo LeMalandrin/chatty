@@ -1,9 +1,11 @@
 export class Room {
-	id:string;
+	public_id:string;
 	label:string;
+	description:string;
 
 	constructor() {
-		this.id = "";
+		this.public_id = "";
 		this.label = "";
+		this.description = "";
 	}
 }
