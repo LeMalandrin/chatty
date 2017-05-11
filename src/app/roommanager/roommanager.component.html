@@ -8,7 +8,13 @@
 
 	<div class="table-responsive">
 	  	<table class="table table-condensed table-hover">
-	    	<tbody>
+	  		<thead>
+	  			<tr>
+	  				<th>Nom</th>
+	  				<th></th>
+	  			</tr>
+	  		</thead>
+	    	<tbody>	    		
 	    		<tr *ngFor="let room of rooms">
 	    			<td>{{ room.label }}</td>
 	    			<td class="text-right">
