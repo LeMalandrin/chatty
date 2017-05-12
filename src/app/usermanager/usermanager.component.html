@@ -1,3 +1,102 @@
-<p>
-  usermanager works!
-</p>
+<div class="col-md-12 roommanager-list">
+
+	<div class="table-responsive">
+	  	<table class="table table-condensed table-hover">
+	  		<thead>
+	  			<tr>
+	  				<th>Nom d'utilisateur</th>
+	  				<th>Email</th>
+	  				<th>Actif ?</th>
+	  				<th>Id privé</th>
+	  				<th>Id public</th>
+	  				<th>Rôle</th>
+	  				<th>Statut</th>
+	  				<th></th>
+	  			</tr>
+	  		</thead>
+	    	<tbody>	   
+	    		<tr *ngFor="let user of users">
+	    			<td>{{ user.username }}</td>
+	    			<td>{{ user.email }}</td>
+
+	    			<td *ngIf="user.isActive" class="success text-center">Oui</td>
+	    			<td *ngIf="!user.isActive" class="danger text-center">Non</td>
+
+
+	    			<td>{{ user.private_id }}</td>
+	    			<td>{{ user.public_id }}</td>
+	    			<td *ngIf="user.role=='admin'" class="danger">
+	    				<span class="glyphicon glyphicon-star" aria-hidden="true"></span>Administrateur
+	    			</td>
+	    			<td *ngIf="user.role=='moderator'" class="success">
+	    				<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>Modérateur    				
+	    			</td>
+	    			<td *ngIf="user.role=='basic'">Basic</td>
+	    			<td>{{ user.status }}</td>
+	    			<td class="text-right">
+					  	<button type="button" class="btn btn-default btn-sm" (click)="showDetailsModal(user.private_id)">
+					  		<i class="fa fa-bars"></i>
+					  	</button>
+
+					  	<button type="button" class="btn btn-default btn-sm" (click)="showRoleModal(user.private_id)">
+					  		<i class="fa fa-sort" aria-hidden="true"></i>
+					  	</button>
+
+
+					  	<button type="button" *ngIf="user.isActive" class="btn btn-danger btn-sm" (click)="lock(user.private_id)">
+					  		<i class="fa fa-lock"></i>
+					  	</button>
+					  	<button type="button" *ngIf="!user.isActive" class="btn btn-success btn-sm" (click)="unlock(user.private_id)">
+					  		<i class="fa fa-unlock-alt" aria-hidden="true"></i>
+					  	</button>
+
+					  	<button type="button" class="btn btn-default btn-sm" (click)="removeUser(user.public_id)">
+					  		<i class="fa fa-remove"></i>
+					  	</button>
+	    			</td>
+	    		</tr> 
+	    	</tbody>
+	    </table>
+	</div>
+
+
+	<modal #detailsModal>
+	    <modal-header [show-close]="true">
+	        <h4 class="modal-title">Profil de '{{ user.username }}'</h4>
+	    </modal-header>
+	    <modal-body>
+	        <div class="form-group">
+	            <label for="textbox">Nom d'utilisateur</label>
+	            <input type="text" class="form-control input-sm" id="username" [(ngModel)]="user.username" disabled="disabled">
+	        </div>   
+	        <div class="form-group">
+	            <label for="textbox">Email</label>
+	            <input type="text" class="form-control input-sm" id="email" [(ngModel)]="user.email" disabled="disabled">
+	        </div>   
+	    </modal-body>
+	    <modal-footer>
+	    	<button type="button" class="btn btn-primary btn-sm" (click)="closeDetailsModal()">Fermer</button>
+	    </modal-footer>
+	</modal>
+
+
+	<modal #roleModal>
+	    <modal-header [show-close]="true">
+	        <h4 class="modal-title">Changer le rôle de '{{user.username}}'</h4>
+	    </modal-header>
+	    <modal-body>
+	        <div class="form-group">
+	            <label for="textbox">Rôle</label>
+	            <select [(ngModel)]="role" class="form-control">
+				  	<option value="admin">Administrateur</option>
+				  	<option value="moderator">Modérateur</option>
+				  	<option value="basic">Basique</option>
+				</select>
+	        </div>    
+	    </modal-body>
+	    <modal-footer>
+	    	<button type="button" class="btn btn-default btn-sm" (click)="closeRoleModal()">Fermer</button>
+	    	<button type="button" class="btn btn-primary btn-sm" (click)="changeRole(user.private_id)">Changer le rôle</button>
+	    </modal-footer>
+	</modal>
+</div>
