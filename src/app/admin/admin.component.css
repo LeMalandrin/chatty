@@ -5,3 +5,7 @@
 a {
 	cursor: pointer;
 }
+
+.access_denied {
+	margin-top: 15px;
+}
