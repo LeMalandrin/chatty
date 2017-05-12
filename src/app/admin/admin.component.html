@@ -29,18 +29,10 @@
 				<app-usermanager *ngIf="isUserManagerVisible"></app-usermanager>
 			</div>
 		</div>
-
-		<div *ngIf="me.role!='admin'" class="text-center col-md-12">
+		<div *ngIf="me.role!='admin' && me.role" class="text-center col-md-12">
 			<div class="alert alert-danger access_denied" role="alert">
 				Vous n'êtes pas autorisé à accéder à cette partie de l'application
 			</div>
 		</div>
 	</div>
-
-	<div *ngIf="!logged"class="text-center col-md-12">
-		<div class="alert alert-danger access_denied" role="alert">
-			Vous n'êtes pas autorisé à accéder à cette partie de l'application
-		</div>
-	</div>
-
 </div>
