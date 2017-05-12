@@ -11,8 +11,6 @@ import { Room } from '../models/room';
 })
 export class RoommanagerComponent implements OnInit {
 	  @Input() me:any;
-  	isListVisible:boolean = true;
-  	isAddModalVisible:boolean = false;
 	  rooms:any[];
     room:Room = new Room();
     errors:string[] = [];
