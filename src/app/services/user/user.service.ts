@@ -56,6 +56,29 @@ export class UserService {
 		}
 	}
 
+	lock(user_id) {
+		this.af.database.object('/users/' + user_id).update({
+			isActive: false
+		});
+	}
+	unlock(user_id) {
+		this.af.database.object('/users/' + user_id).update({
+			isActive: true
+		});
+	}
+
+
+	updateRole(user_id, role) {
+		console.log(user_id);		
+		this.af.database.object('/users/' + user_id).update({
+			role: role
+		});
+	}
+
+	getUsers() {
+		return this.af.database.list('/users');
+	}
+
 
 	getUser(user_id) {
 		return this.af.database.object('/users/' + user_id);
