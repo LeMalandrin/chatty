@@ -19,15 +19,11 @@ export class RoomlistComponent implements OnInit {
   		this.roomService.getRooms().subscribe(rooms=>{
         this.rooms = rooms;
   			this.rooms.forEach(room=> {
-          var room_id = room.$key;
+          var room_id = room.public_id;
            room.occupants = [];
 
-          var query = {
-            orderByChild: 'room_id',
-            equalTo: parseInt(room_id) 
-          };
 
-          this.roomService.getOccupants(query).subscribe(rooms_users=>{
+          this.roomService.getOccupantsByRoomId(room_id).subscribe(rooms_users=>{
             rooms_users.forEach(room_user=>{
               this.userService.getUser(room_user.user_id).subscribe(occupant=>{
                 room.occupants.push(occupant);
