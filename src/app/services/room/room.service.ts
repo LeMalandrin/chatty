@@ -25,7 +25,6 @@ export class RoomService {
 	}
 
 	getOccupantsByRoomId(room_id) {
-		console.log(room_id);
 		return this.af.database.list('/rooms_users', {
 		    query : {
 		    	orderByChild: 'room_id',
