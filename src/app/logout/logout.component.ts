@@ -17,7 +17,7 @@ export class LogoutComponent implements OnInit {
     }
 
 
-    router.navigate(['']);
+    router.navigate(['login']);
     location.reload();
   }
 
