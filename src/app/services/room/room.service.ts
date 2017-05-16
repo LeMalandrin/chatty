@@ -49,7 +49,7 @@ export class RoomService {
 		this.af.database.object('/rooms/' + private_id).remove();
 	}
 
-	deleteOccupantByUserId(user_id) {
+	removeOccupantByUserId(user_id) {
 		this.af.database.list('/rooms_users', {
 		    query : {
 		    	orderByChild: 'user_id',
