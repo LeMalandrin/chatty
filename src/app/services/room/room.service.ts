@@ -49,6 +49,23 @@ export class RoomService {
 		this.af.database.object('/rooms/' + private_id).remove();
 	}
 
+	deleteOccupantByUserId(user_id) {
+		this.af.database.list('/rooms_users', {
+		    query : {
+		    	orderByChild: 'user_id',
+	            equalTo: user_id,
+	        }
+	    }).remove();
+	}
+
+	addOccupant(user_id, room_id) {
+		this.af.database.list('/rooms_users').push({
+	    	room_id: room_id,
+            user_id: user_id
+		});
+	}
+
+
 
 	update() {
 		if(this.isValid()) {
@@ -61,7 +78,15 @@ export class RoomService {
 		} else { return false; }
 	}
 
-
+	exists(room_to_check) {
+		let existing = false;
+		for(var room of this.rooms) {
+			if(room.public_id == room_to_check) {
+				existing = true;
+			}
+		}
+		return existing;
+	}
 
 	isValid() {
 		let isValidLabel = (this.isValidLabel());
