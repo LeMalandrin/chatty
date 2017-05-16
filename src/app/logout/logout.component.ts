@@ -14,7 +14,7 @@ export class LogoutComponent implements OnInit {
   constructor(private userService:UserService, private roomService:RoomService, private router:Router) {
   	if(localStorage.getItem('me')) {     
         userService.logout();   
-        roomService.deleteOccupantByUserId(localStorage.getItem('me'));
+        roomService.removeOccupantByUserId(localStorage.getItem('me'));
         localStorage.removeItem('me');
     }
 
