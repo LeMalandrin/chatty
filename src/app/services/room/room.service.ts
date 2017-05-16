@@ -24,9 +24,13 @@ export class RoomService {
 		return false;
 	}
 
-	getOccupants(query) {
+	getOccupantsByRoomId(room_id) {
+		console.log(room_id);
 		return this.af.database.list('/rooms_users', {
-	    	query
+		    query : {
+		    	orderByChild: 'room_id',
+	            equalTo: room_id,
+	        }
 	    });
 	}
 	getRooms() {	
