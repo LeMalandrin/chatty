@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       if(login != null) {
         login.then((auth)=>{
           localStorage.setItem('me', auth.uid);
-          this.roomService.setOccupant(auth.uid, this.user.room);
+          this.roomService.addOccupant(auth.uid, this.user.room);
           location.reload();
         }).catch((error)=>{          
           this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
