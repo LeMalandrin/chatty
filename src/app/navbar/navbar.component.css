@@ -4,3 +4,23 @@
 .nav>li>.login_button:hover {
 	background-color: #00769e;
 }
+
+
+.navbar_button_link {
+	padding: 0;
+}
+.navbar_button_link > .btn {
+	height: 100%;
+	margin: 0;
+}
+.navbar-right {
+	height: 100%;
+}
+.dropdown-menu > li >.navbar_button_link > .btn {
+	width: 100%;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+.dropdown-menu > .divider {
+	margin: 0;
+}
