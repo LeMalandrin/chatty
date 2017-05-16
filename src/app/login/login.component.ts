@@ -1,54 +1,67 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user/user.service';
+import { RoomService } from '../services/room/room.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [UserService]
+  providers: [UserService, RoomService]
 })
 export class LoginComponent implements OnInit {
 	user:User = new User();
 	errors:string[] = [];
 	controls:string[] = [];
+  rooms:any[] = [];
 
-  	constructor(private userService:UserService, private router:Router) {
-      if(localStorage.getItem('me')) {        
-        router.navigate(['']);
-        location.reload();
-      } else {
-        this.controls['login'] = "form-group";
-        this.controls['password'] = "form-group"; 
-        userService.logout();
-      }
-  	}
+	constructor(private userService:UserService, private roomService:RoomService, private router:Router) {
+    if(localStorage.getItem('me')) {        
+      router.navigate(['']);
+      location.reload();
+    } else {
+      this.controls['login'] = "form-group";
+      this.controls['password'] = "form-group"; 
+      this.controls['room'] = "form-group"; 
+      this.roomService.getRooms().subscribe(rooms=> {
+        this.rooms = rooms;
+      });
+      userService.logout();
+    }
+	}
 
-  	ngOnInit() {
-  	}
+	ngOnInit() {
+	}
 
 
-  	connect() {  		
-  		this.controls['login'] = "form-group";
-  		this.controls['password'] = "form-group";
-
-  		this.userService.setUser(this.user);
-  		let login = this.userService.login();
-  		if(login != null) {
-  			login.then((auth)=>{
+	connect() {  		
+		this.controls['login'] = "form-group";
+    this.controls['password'] = "form-group";
+		this.controls['room'] = "form-group";
+    if(this.roomService.exists(this.user.room)) {
+      this.userService.setUser(this.user);
+      let login = this.userService.login();
+      if(login != null) {
+        login.then((auth)=>{
           localStorage.setItem('me', auth.uid);
+          this.roomService.setOccupant(auth.uid, this.user.room);
           location.reload();
-  			}).catch((error)=>{  				
-	  			this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
-	  			this.errors['password'].push("Le mot de passe est invalide");
-	  			this.controls['password'] = "form-group has-error";
-  			})
-  		} else {
-  			this.errors['login'] = (this.errors['login']!=undefined) ? this.errors['login'] : [];
-  			this.errors['login'].push("L'adresse email ou le nom d'utilisateur n'existe pas");
-	  		this.controls['login'] = "form-group has-error";
-  		}
-  	}
+        }).catch((error)=>{          
+          this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
+          this.errors['password'].push("Le mot de passe est invalide");
+          this.controls['password'] = "form-group has-error";
+        })
+      } else {
+        this.errors['login'] = (this.errors['login']!=undefined) ? this.errors['login'] : [];
+        this.errors['login'].push("L'adresse email ou le nom d'utilisateur n'existe pas");
+        this.controls['login'] = "form-group has-error";
+      }      
+    } else {
+      this.errors['room'] = (this.errors['room']!=undefined) ? this.errors['room'] : [];
+      this.errors['room'].push("Veuillez séléctionner un salon");
+      this.controls['room'] = "form-group has-error";      
+    }
+	}
 
 }
