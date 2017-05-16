@@ -9,6 +9,7 @@ export class User {
 	role:string;
 	isConnected:boolean;
 	login:string;
+	room:any;
 
 	constructor() {
 		this.public_id = "";
@@ -21,5 +22,6 @@ export class User {
 		this.role = "basic";
 		this.isConnected = false;
 		this.login = "";
+		this.room = null;
 	}
 }
