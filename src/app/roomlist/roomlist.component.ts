@@ -16,9 +16,13 @@ export class RoomlistComponent implements OnInit {
   	constructor(private roomService:RoomService, private userService:UserService) { }
 
   	ngOnInit() {
-  		this.roomService.getRooms().subscribe(rooms=>{
+  		this.loadRoomlist();
+  	}
+
+    loadRoomlist() {
+      this.roomService.getRooms().subscribe(rooms=>{
         this.rooms = rooms;
-  			this.rooms.forEach(room=> {
+        this.rooms.forEach(room=> {
           var room_id = room.public_id;
            room.occupants = [];
 
@@ -31,9 +35,7 @@ export class RoomlistComponent implements OnInit {
             })
           });
         })
-  		});
-
-
-  	}
+      });
+    }
 
 }
