@@ -5,6 +5,13 @@
 	background-color: #00769e;
 }
 
+.register_button {
+	background-color: #eb961e;
+}
+.nav>li>.register_button:hover {
+	background-color: #c57a10;
+}
+
 
 .navbar_button_link {
 	padding: 0;
