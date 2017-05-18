@@ -24,14 +24,6 @@ export class RoomService {
 		return false;
 	}
 
-	getOccupantsByRoomId(room_id) {
-		return this.af.database.list('/rooms_users', {
-		    query : {
-		    	orderByChild: 'room_id',
-	            equalTo: room_id,
-	        }
-	    });
-	}
 	getRooms() {	
 		return this.af.database.list('/rooms');
 	}
@@ -53,10 +45,14 @@ export class RoomService {
 	}
 
 
-	getRoomOfUser(user_id) {
-
+	getOccupants(room_id) {
+		return this.af.database.list('/users', {
+			query: {
+				orderByChild: 'room_id',
+				equalTo: room_id
+			}
+		});
 	}
-
 
 	update() {
 		if(this.isValid()) {

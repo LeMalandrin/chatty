@@ -19,13 +19,11 @@ export class UserlistComponent implements OnInit {
 
   	loadUserlist() {
   		this.room.occupants = [];
-  		this.roomService.getOccupantsByRoomId(this.room.public_id).subscribe(rooms_users=>{
-          rooms_users.forEach(room_user=>{
-            this.userService.getUser(room_user.user_id).subscribe(occupant=>{
-              this.room.occupants.push(occupant);
-            })              
-          })
-        });
+  		this.roomService.getOccupants(this.room.public_id).subscribe(rooms_users=>{
+        for(var occupant of rooms_users) {
+          this.room.occupants.push(occupant);
+        }
+      });
   	}
 
 }
