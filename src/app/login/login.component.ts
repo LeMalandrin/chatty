@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
           this.userService.update({
             room_id: this.user.room_id,
             isConnected: true
-          })
+          });
         }).catch((error)=>{          
           this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
           this.errors['password'].push("Le mot de passe est invalide");
