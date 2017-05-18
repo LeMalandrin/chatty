@@ -11,3 +11,10 @@
 .panel {
 	margin-bottom: 0;
 }
+
+.contextmenu-content-hidden {
+	display: none;
+}
+.contextmenu-content-displayed {
+	display: block;
+}
