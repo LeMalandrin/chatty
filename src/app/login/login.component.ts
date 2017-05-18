@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
             room_id: this.user.room_id,
             isConnected: true
           });
+          location.reload();
         }).catch((error)=>{          
           this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
           this.errors['password'].push("Le mot de passe est invalide");
