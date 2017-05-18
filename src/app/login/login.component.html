@@ -23,7 +23,7 @@
 				<div [class]="controls['room']">
 					<label class="control-label col-md-2">Salon</label>
 					<div class="col-md-10">
-						<select class="form-control" name="room" [(ngModel)]="user.room">
+						<select class="form-control" name="room" [(ngModel)]="user.room_id">
 							<option *ngFor="let room of rooms" value="{{room.public_id}}">{{ room.label }}</option>
 						</select>
 						<span class="help-block" *ngFor="let error of errors['room']">{{error}}</span>

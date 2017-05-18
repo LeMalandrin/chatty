@@ -56,6 +56,7 @@ export class UserService {
 		}
 	}
 
+
 	lock(user_id) {
 		this.af.database.object('/users/' + user_id).update({
 			isActive: false
@@ -95,7 +96,8 @@ export class UserService {
 					username: this.user.username,
 					status: this.user.status,
 					role: this.user.role,
-					isConnected: false
+					isConnected: false,
+					room_id: ""
 				});
 			});
 			return true;
@@ -141,6 +143,9 @@ export class UserService {
 		return this.user.password===this.user.password_confirm;
 	}
 
+	update(values) {
+		this.af.database.object('/users/' + this.user.private_id).update(values);
+	}
 
 	setUser(user:User) {
 		this.user = user;

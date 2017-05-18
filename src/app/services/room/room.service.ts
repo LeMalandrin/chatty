@@ -52,22 +52,10 @@ export class RoomService {
 		this.af.database.object('/rooms/' + private_id).remove();
 	}
 
-	removeOccupantByUserId(user_id) {
-		this.af.database.list('/rooms_users', {
-		    query : {
-		    	orderByChild: 'user_id',
-	            equalTo: user_id,
-	        }
-	    }).remove();
-	}
 
-	addOccupant(user_id, room_id) {
-		this.af.database.list('/rooms_users').push({
-	    	room_id: room_id,
-            user_id: user_id
-		});
-	}
+	getRoomOfUser(user_id) {
 
+	}
 
 
 	update() {
@@ -82,6 +70,7 @@ export class RoomService {
 	}
 
 	exists(room_to_check) {
+		console.log(room_to_check);
 		let existing = false;
 		for(var room of this.rooms) {
 			if(room.public_id == room_to_check) {

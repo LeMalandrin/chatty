@@ -39,14 +39,18 @@ export class LoginComponent implements OnInit {
 		this.controls['login'] = "form-group";
     this.controls['password'] = "form-group";
 		this.controls['room'] = "form-group";
-    if(this.roomService.exists(this.user.room)) {
+    if(this.roomService.exists(this.user.room_id)) {
       this.userService.setUser(this.user);
       let login = this.userService.login();
       if(login != null) {
         login.then((auth)=>{
           localStorage.setItem('me', auth.uid);
-          this.roomService.addOccupant(auth.uid, this.user.room);
-          location.reload();
+          this.user.private_id = auth.uid;
+          this.userService.setUser(this.user);             
+          this.userService.update({
+            room_id: this.user.room_id,
+            isConnected: true
+          })
         }).catch((error)=>{          
           this.errors['password'] = (this.errors['password']!=undefined) ? this.errors['password'] : [];
           this.errors['password'].push("Le mot de passe est invalide");
