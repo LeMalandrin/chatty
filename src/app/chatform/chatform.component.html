@@ -1,7 +1,7 @@
 <div class="chatform">
 	<div class="col-md-12">
     	<div class="col-md-10 col-sm-10">
-			<textarea class="form-control" rows="4"></textarea>
+			<textarea class="form-control" rows="4" [(ngModel)]="message.content"></textarea>
 		</div>
 		<div class="col-md-2 col-sm-2">
 			<button type="button" class="btn btn-primary btn-lg" (click)="sendMessage()">Envoyer</button>
