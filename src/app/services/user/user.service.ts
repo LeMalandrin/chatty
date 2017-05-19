@@ -76,6 +76,15 @@ export class UserService {
 		});
 	}
 
+
+	getuserByPublicId(public_id) {
+		return this.af.database.list('/users/' , { 
+			query: {
+				public_id: public_id
+			}
+		});
+	}
+
 	getUsers() {
 		return this.af.database.list('/users');
 	}
