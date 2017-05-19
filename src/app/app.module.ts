@@ -21,7 +21,10 @@ import { RoommanagerComponent } from './roommanager/roommanager.component';
 import { UsermanagerComponent } from './usermanager/usermanager.component';
 
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
-import { ContextMenuModule } from 'angular2-contextmenu/angular2-contextmenu';
+//import { ContextMenuModule } from 'ngx-contextmenu/';
+import { UserlistComponent } from './userlist/userlist.component';
+import { ChatmessagesComponent } from './chatmessages/chatmessages.component';
+import { ChatformComponent } from './chatform/chatform.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { ContextMenuModule } from 'angular2-contextmenu/angular2-contextmenu';
     AdminComponent,
     RoommanagerComponent,
     UsermanagerComponent,
+    UserlistComponent,
+    ChatmessagesComponent,
+    ChatformComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,7 @@ import { ContextMenuModule } from 'angular2-contextmenu/angular2-contextmenu';
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig),
     Ng2Bs3ModalModule,
-    ContextMenuModule
+    //ContextMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
