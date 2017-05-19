@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Room } from '../models/room';
 import { RoomService } from '../services/room/room.service';
 import { UserService } from '../services/user/user.service';
-import { ContextMenuComponent } from 'ngx-contextmenu/';
+//import { ContextMenuComponent } from 'ngx-contextmenu/';
 
 @Component({
   selector: 'app-roomlist',
@@ -13,12 +13,12 @@ import { ContextMenuComponent } from 'ngx-contextmenu/';
 export class RoomlistComponent implements OnInit {
 	@Input() me:any;
 	rooms:any[];
-
+/*
   public items = [
       { name: 'John', otherProperty: 'Foo' },
       { name: 'Joe', otherProperty: 'Bar' }
   ];
-  @ViewChild(ContextMenuComponent) public basicMenu: ContextMenuComponent;
+  @ViewChild(ContextMenuComponent) public basicMenu: ContextMenuComponent;*/
 
 
 	constructor(private roomService:RoomService, private userService:UserService) { }
